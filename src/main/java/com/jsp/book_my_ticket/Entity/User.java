@@ -1,4 +1,7 @@
 package com.jsp.book_my_ticket.Entity;
+
+
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

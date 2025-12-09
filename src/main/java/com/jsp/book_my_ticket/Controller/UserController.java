@@ -167,6 +167,10 @@ public class UserController {
 	
 	
 	
+	
+	
+	
+	
 	@GetMapping("/delete-screen/{id}")
 	public String deleteScreen(@PathVariable Long id, HttpSession session, RedirectAttributes attributes) {
 		return userService.deleteScreen(id, session, attributes);
@@ -181,6 +185,19 @@ public class UserController {
 	public String updateScreen(@Valid ScreenDto screenDto, BindingResult result, @RequestParam Long id, ModelMap map,
 			RedirectAttributes attributes, HttpSession session) {
 		return userService.updateScreen(screenDto, id, result, session, attributes, map);
+	}
+	
+	
+	
+	
+	@GetMapping("/manage-seats/{id}")
+	public String manageSeats(@PathVariable Long id, HttpSession session, ModelMap map, RedirectAttributes attributes) {
+		return userService.manageSeats(id, session, map, attributes);
+	}
+	
+	@GetMapping("/add-seats/{id}")
+	public String addSeats(@PathVariable Long id, HttpSession session, ModelMap map, RedirectAttributes attributes) {
+		return userService.addSeats(id, session, map, attributes);
 	}
 }
 

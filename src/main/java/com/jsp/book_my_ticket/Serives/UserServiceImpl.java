@@ -19,6 +19,7 @@ import com.jsp.book_my_ticket.Dto.ScreenDto;
 import com.jsp.book_my_ticket.Dto.TheaterDto;
 import com.jsp.book_my_ticket.Dto.UserDto;
 import com.jsp.book_my_ticket.Entity.Screen;
+import com.jsp.book_my_ticket.Entity.Seat;
 import com.jsp.book_my_ticket.Entity.Theater;
 import com.jsp.book_my_ticket.Entity.User;
 import com.jsp.book_my_ticket.Repository.ScreenRepository;
@@ -508,4 +509,36 @@ public class UserServiceImpl implements UserService {
 				return "redirect:/manage-screens/" + screen.getTheater().getId();
 			}
 		}
-}
+		
+		
+		
+		
+		@Override
+		public String manageSeats(Long id, HttpSession session, ModelMap map, RedirectAttributes attributes) {
+			User user = getUserFromSession(session);
+			if (user == null || !user.getRole().equals("ADMIN")) {
+				attributes.addFlashAttribute("fail", "Invalid Session");
+				return "redirect:/login";
+			} else {
+				Screen screen = screenRepository.findById(id).orElseThrow();
+				List<Seat> seats = screen.getSeats();
+				map.put("seats", seats);
+				map.put("screenId", id);
+				return "manage-seats.html";
+			}
+		}
+
+		@Override
+		public String addSeats(Long id, HttpSession session, ModelMap map, RedirectAttributes attributes) {
+			User user = getUserFromSession(session);
+			if (user == null || !user.getRole().equals("ADMIN")) {
+				attributes.addFlashAttribute("fail", "Invalid Session");
+				return "redirect:/login";
+			} else {
+				Screen screen = screenRepository.findById(id).orElseThrow();
+				map.put("id", id);
+				return "add-seats.html";
+			}
+		}
+
+	}

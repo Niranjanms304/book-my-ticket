@@ -1,5 +1,9 @@
 package com.jsp.book_my_ticket.Repository;
 
+
+
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.jsp.book_my_ticket.Entity.User;
@@ -12,5 +16,7 @@ public interface UserRepository  extends JpaRepository<User, Long> {
 	User findByEmail(String email);
 
 	boolean existsByMobile(Long mobile);
+	
+	List<User> findByRole(String string);
 
 }

@@ -20,3 +20,4 @@ public class TheaterDto {
 	@NotNull(message = "* It is Required")
 	private MultipartFile image;
 }
+

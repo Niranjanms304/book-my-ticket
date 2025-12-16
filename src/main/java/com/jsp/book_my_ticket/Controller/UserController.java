@@ -16,6 +16,7 @@ import com.jsp.book_my_ticket.Dto.LoginDto;
 import com.jsp.book_my_ticket.Dto.MovieDto;
 import com.jsp.book_my_ticket.Dto.PasswordDto;
 import com.jsp.book_my_ticket.Dto.ScreenDto;
+import com.jsp.book_my_ticket.Dto.SeatLayoutForm;
 import com.jsp.book_my_ticket.Dto.TheaterDto;
 import com.jsp.book_my_ticket.Dto.UserDto;
 import com.jsp.book_my_ticket.Serives.UserService;
@@ -200,6 +201,23 @@ public class UserController {
 	public String addSeats(@PathVariable Long id, HttpSession session, ModelMap map, RedirectAttributes attributes) {
 		return userService.addSeats(id, session, map, attributes);
 	}
+	
+	
+	
+	@PostMapping("/add-seats/{id}")
+	public String saveSeats(@PathVariable Long id,
+	                        SeatLayoutForm seatLayoutForm,
+	                        HttpSession session,
+	                        RedirectAttributes attributes) {
+	    return userService.saveSeats(id, seatLayoutForm, session, attributes);
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

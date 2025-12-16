@@ -10,6 +10,7 @@ import com.jsp.book_my_ticket.Dto.LoginDto;
 import com.jsp.book_my_ticket.Dto.MovieDto;
 import com.jsp.book_my_ticket.Dto.PasswordDto;
 import com.jsp.book_my_ticket.Dto.ScreenDto;
+import com.jsp.book_my_ticket.Dto.SeatLayoutForm;
 import com.jsp.book_my_ticket.Dto.TheaterDto;
 import com.jsp.book_my_ticket.Dto.UserDto;
 import jakarta.servlet.http.HttpSession;
@@ -81,4 +82,9 @@ public interface UserService {
 	String loadAddMovie(MovieDto movieDto, RedirectAttributes attributes, HttpSession session);
 
 	String addMovie(MovieDto movieDto, BindingResult result, RedirectAttributes attributes, HttpSession session);
+	
+	
+	
+	
+	String saveSeats(Long id, SeatLayoutForm seatLayoutForm, HttpSession session, RedirectAttributes attributes);
 }

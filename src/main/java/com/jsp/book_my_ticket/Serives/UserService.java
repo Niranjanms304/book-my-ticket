@@ -11,6 +11,7 @@ import com.jsp.book_my_ticket.Dto.MovieDto;
 import com.jsp.book_my_ticket.Dto.PasswordDto;
 import com.jsp.book_my_ticket.Dto.ScreenDto;
 import com.jsp.book_my_ticket.Dto.SeatLayoutForm;
+import com.jsp.book_my_ticket.Dto.ShowDto;
 import com.jsp.book_my_ticket.Dto.TheaterDto;
 import com.jsp.book_my_ticket.Dto.UserDto;
 import jakarta.servlet.http.HttpSession;
@@ -87,4 +88,16 @@ public interface UserService {
 	
 	
 	String saveSeats(Long id, SeatLayoutForm seatLayoutForm, HttpSession session, RedirectAttributes attributes);
+	
+	
+	String manageShows(Long id, ModelMap map, RedirectAttributes attributes, HttpSession session);
+	
+	String addShow(Long id, ModelMap map, RedirectAttributes attributes, HttpSession session);
+	
+
+	String addShow(ShowDto showDto, BindingResult result, RedirectAttributes attributes, HttpSession session, ModelMap map);
+
+
+	
+	
 }
